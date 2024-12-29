@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace ContactApp.Services
+namespace Business.Services
 {
     public static class ValidationService
     {
@@ -9,7 +9,7 @@ namespace ContactApp.Services
             if (string.IsNullOrEmpty(name)) 
                 return false;
 
-            string nameRegex = @"^[a-zA-ZäöåÄÖÅ]+([ -][a-zA-ZäöåÄÖÅ]+)*$"; // kopierat från chatGPT (kollar så namnet innehåller minst två bokstäver ,a-ö, stora eller små spelar ingen roll, får innehålla mellanslag och -)
+            string nameRegex = @"^(?=.*[a-zA-ZäöåÄÖÅ].*[a-zA-ZäöåÄÖÅ])([a-zA-ZäöåÄÖÅ]+([ -][a-zA-ZäöåÄÖÅ]+)*)$"; // kopierat från chatGPT (kollar så namnet innehåller minst två bokstäver ,a-ö, stora eller små spelar ingen roll, får innehålla mellanslag och -)
 
             return Regex.IsMatch(name.Trim(), nameRegex);
         }
@@ -18,7 +18,7 @@ namespace ContactApp.Services
             if (string.IsNullOrWhiteSpace(email))
                 return false;
 
-            string emailRegex = @"^[^@\s]+@[^@\s]+\.[^@\s]+$"; // kopierat från chatGPT (kollar så det är en giltig epostadress, med tecken framför @ och tecken bakom @, att det är med @, att det avslutas med . och så någonting mer.)
+            string emailRegex = @"^[^@\s]+@[^@\s]+\.[^@\s]+$"; // kopierat från chatGPT (kollar så det är en giltig epostadress, med tecken framför @ och tecken bakom @, att det är med @, att det avslutas med . och sen tex. se, com osv..)
             return Regex.IsMatch(email, emailRegex);
         }
 
@@ -27,7 +27,7 @@ namespace ContactApp.Services
             if (string.IsNullOrWhiteSpace(phoneNumber))
                 return false;
 
-            string phoneRegex = @"^\d{10}$"; // kopierat från chatGPT (kollar så att det är ett gitligt mobilnummer med 10 siffror och iga mellanslag)
+            string phoneRegex = @"^\d{10}$"; // kopierat från chatGPT (kollar så att det är ett gitligt mobilnummer med 10 siffror och inga mellanslag eller specialtecken.)
             return Regex.IsMatch((string)phoneNumber, phoneRegex);
         }
 

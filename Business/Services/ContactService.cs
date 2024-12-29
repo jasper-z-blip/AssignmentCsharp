@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using ContactApp.Models;
+using Business.Models;
 
-namespace ContactApp.Services
+namespace Business.Services
 {
     public class ContactService
     {

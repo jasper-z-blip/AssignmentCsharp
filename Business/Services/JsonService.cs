@@ -1,7 +1,7 @@
 ﻿using System.Xml;
 using Newtonsoft.Json;
 
-namespace ContactApp.Services // Hela koden tagen från chatGPT
+namespace Business.Services // Hela koden tagen från chatGPT
 {
     public class JsonService
     {
