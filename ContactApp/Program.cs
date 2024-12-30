@@ -1,8 +1,6 @@
 ﻿using Presentation.Console.MainApp.UI;
 using Business.Services;
 
-using System;
-
 namespace Presentation.Console.MainApp
 {
     class Program

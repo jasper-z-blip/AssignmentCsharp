@@ -1,5 +1,4 @@
-﻿using System.Xml;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace Business.Services // Hela koden tagen från chatGPT
 {
@@ -27,7 +26,6 @@ namespace Business.Services // Hela koden tagen från chatGPT
             {
                 string json = File.ReadAllText(_filePath);
 
-                // Om filen är tom, returnera en tom lista
                 if (string.IsNullOrWhiteSpace(json))
                 {
                     return new List<T>();
@@ -48,6 +46,10 @@ namespace Business.Services // Hela koden tagen från chatGPT
         /// </summary>
         public void SaveData<T>(List<T> data)
         {
+            if (data == null)
+            {
+                throw new ArgumentNullException("data");
+            }
             try
             {
                 string json = JsonConvert.SerializeObject(data, Newtonsoft.Json.Formatting.Indented);

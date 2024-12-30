@@ -1,7 +1,7 @@
 ﻿using Business.Models;
 using Business.Services;
 
-namespace Presentation.Console.MainApp.UI // Fick problem när jag använde Console i namnet så la till System fram alla Console i koden och då fungerade det.
+namespace Presentation.Console.MainApp.UI // Fick problem när jag använde Console i namnet så la till System framför alla Console i koden och då fungerade det.
 {
     public class MenuService
     {
